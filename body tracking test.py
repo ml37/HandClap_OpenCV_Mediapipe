@@ -1,11 +1,13 @@
 import cv2
 import mediapipe as mp
+import numpy as np
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
 # For static images:
 IMAGE_FILES = []
+#IMAGE_FILES = []
 BG_COLOR = (192, 192, 192) # gray
 with mp_pose.Pose(
     static_image_mode=True,
@@ -55,7 +57,8 @@ with mp_pose.Pose(
     if not success:
       print("Ignoring empty camera frame.")
       # If loading a video, use 'break' instead of 'continue'.
-      continue
+      #continue
+      break
 
     # To improve performance, optionally mark the image as not writeable to
     # pass by reference.
