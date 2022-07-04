@@ -68,6 +68,7 @@ with mp_hands.Hands(
     image.flags.writeable = True
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     if results.multi_hand_landmarks:
+      print(f'Handedness: {results.multi_hand_world_landmarks}, {results.multi_handedness}')
       for hand_landmarks in results.multi_hand_landmarks:
         mp_drawing.draw_landmarks(
             image,
